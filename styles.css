@@ -1,0 +1,776 @@
+/* 全局样式 */
+:root {
+    --primary-color: #4A4A4A;     /* 主灰色 */
+    --secondary-color: #ffffff;    /* 白色 */
+    --accent-color: #D4AF37;      /* 金色 */
+    --light-gray: #F5F5F5;        /* 浅灰色 */
+    --text-color: #333333;        /* 深灰色文字 */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    font-family: 'Microsoft YaHei', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+/* 导航栏样式 */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 5%;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.98) 0%,
+        rgba(255, 255, 255, 0.95) 100%
+    );
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    padding: 0.8rem 5%;
+}
+
+/* 品牌区域样式 */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+    transition: all 0.3s ease;
+}
+
+/* 公司名称样式 */
+.company-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.company-name h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+    line-height: 1;
+    margin: 0;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: var(--accent-color);
+}
+
+/* 首页主视觉区域 */
+.hero {
+    height: 100vh;
+    background: linear-gradient(
+        135deg,
+        var(--primary-color) 0%,
+        var(--light-gray) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--secondary-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.hero-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+}
+
+.hero-logo {
+    animation: fadeInLeft 1s ease-out;
+}
+
+.hero-logo img {
+    height: 200px;
+    width: auto;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
+}
+
+.hero-title {
+    animation: fadeInRight 1s ease-out;
+    text-align: center;
+}
+
+.hero-title h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.hero-title h2 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: var(--secondary-color);
+    margin-top: 1rem;
+    opacity: 0.9;
+}
+
+/* 高亮文字样式 */
+.hero-title h1 .highlight {
+    color: #d5be96;  /* 浅棕金色 */
+}
+
+/* 移除之前的发光和动画效果 */
+.hero-title h1 .highlight::after {
+    display: none;
+}
+
+/* 动画效果 */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .hero-main {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .hero-logo img {
+        height: 120px;
+    }
+    
+    .hero-title h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-title h2 {
+        font-size: 1.2rem;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+} 
+
+/* 关于我们区域样式 */
+.about {
+    padding: 6rem 10%;
+    background: linear-gradient(
+        to bottom,
+        var(--light-gray) 0%,
+        #ffffff 100%
+    );
+    position: relative;
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.about h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--accent-color);
+}
+
+.company-intro {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    text-align: center;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.core-advantages {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.advantage-item {
+    background: white;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.advantage-item:hover {
+    transform: translateY(-10px);
+}
+
+.advantage-item i {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.advantage-item:hover i {
+    transform: scale(1.1);
+}
+
+.advantage-item h3 {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.advantage-item p {
+    color: var(--text-color);
+    line-height: 1.6;
+    opacity: 0.9;
+    margin-top: 0.5rem;
+}
+
+/* 响应式调整 */
+@media (max-width: 992px) {
+    .core-advantages {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .about {
+        padding: 4rem 5%;
+    }
+
+    .about h2 {
+        font-size: 2rem;
+    }
+
+    .company-intro {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    .core-advantages {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .advantage-item {
+        padding: 2rem 1.5rem;
+    }
+} 
+
+/* 项目案例区域样式 */
+.projects {
+    padding: 6rem 10%;
+    background: linear-gradient(
+        to bottom,
+        #ffffff 0%,
+        var(--light-gray) 100%
+    );
+    position: relative;
+}
+
+.projects h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.projects h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--accent-color);
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.project-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.project-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+.project-card h3 {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin: 1.5rem;
+}
+
+.project-card p {
+    color: var(--text-color);
+    margin: 0 1.5rem 1.5rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* 联系我们区域样式 */
+.contact {
+    padding: 6rem 10%;
+    background: linear-gradient(
+        135deg,
+        var(--light-gray) 0%,
+        #ffffff 100%
+    );
+    position: relative;
+    z-index: 1;
+}
+
+.contact::before {
+    display: none;
+}
+
+.contact h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.contact h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--accent-color);
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+.contact-info {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    text-align: left;
+}
+
+.contact-info h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.contact-info i {
+    font-size: 1.4rem;
+    color: var(--accent-color);
+    margin-right: 1rem;
+    width: 24px;
+    text-align: center;
+}
+
+.map {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    background: #f0f0f0;
+    min-height: 400px;
+}
+
+/* 响应式调整 */
+@media (max-width: 992px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .projects, .contact {
+        padding: 4rem 5%;
+    }
+
+    .projects h2, .contact h2 {
+        font-size: 2rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .contact-info {
+        padding: 2rem;
+    }
+
+    .contact-info h3 {
+        font-size: 1.5rem;
+    }
+
+    .contact-info p {
+        font-size: 1rem;
+    }
+
+    .map {
+        min-height: 300px;
+    }
+} 
+
+/* 轮播图样式 */
+.carousel-container {
+    position: relative;
+    max-width: 100%;
+    margin: 3rem auto;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.carousel-item {
+    min-width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-item img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 15px;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.7),
+        transparent
+    );
+    color: white;
+    border-radius: 0 0 15px 15px;
+}
+
+.carousel-caption h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.carousel-caption p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin: 0;
+    color: white;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 2rem;
+    color: white;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.carousel-button:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-button.prev {
+    left: 30px;
+}
+
+.carousel-button.next {
+    right: 30px;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: white;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .carousel-item img {
+        height: 400px;
+    }
+
+    .carousel-caption h3 {
+        font-size: 1.5rem;
+    }
+
+    .carousel-caption p {
+        font-size: 1rem;
+    }
+
+    .carousel-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+    
+    .carousel-button.prev {
+        left: 15px;
+    }
+    
+    .carousel-button.next {
+        right: 15px;
+    }
+} 
+
+/* 添加社交链接样式 */
+.social-links {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.social-links h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: flex-start;
+}
+
+.social-icons a {
+    color: var(--accent-color);
+    font-size: 1.8rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--primary-color);
+}
+
+/* 更新页脚样式 */
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 5%;
+} 
+
+/* 更新联系信息区域样式 */
+.company-description {
+    margin-bottom: 2rem;
+}
+
+.company-description p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    font-size: 1.1rem;
+}
+
+.contact-details {
+    margin-bottom: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.contact-details p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.contact-details i {
+    font-size: 1.4rem;
+    color: var(--accent-color);
+    margin-right: 1rem;
+    width: 24px;
+    text-align: center;
+} 
+
+/* 添加英文文本样式 */
+.en-text {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    font-family: 'Arial', sans-serif;
+}
+
+/* 调整标题样式 */
+.about h2, .advantage-item h3 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+/* 调整优势项文字样式 */
+.advantage-item p {
+    color: var(--text-color);
+    line-height: 1.6;
+    opacity: 0.9;
+    margin-top: 0.5rem;
+} 
